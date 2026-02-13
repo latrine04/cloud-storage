@@ -1,0 +1,133 @@
+
+import React from 'react';
+import { 
+  FileVideo, 
+  Download, 
+  ShieldCheck, 
+  Info, 
+  Share2, 
+  MoreHorizontal,
+  Cloud
+} from 'lucide-react';
+
+const App: React.FC = () => {
+  const fileName = "style frame.mp4";
+  const fileSize = "124.5 MB";
+  const uploadDate = "March 15, 2024";
+  const downloadLink = "https://iluvyou.app/g/DS7rF6";
+
+  const handleDownload = () => {
+    window.open(downloadLink, '_blank', 'noopener,noreferrer');
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-slate-50">
+      {/* Navigation Header */}
+      <header className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="bg-blue-600 p-1.5 rounded-lg">
+            <Cloud className="text-white w-5 h-5" />
+          </div>
+          <span className="font-bold text-slate-800 text-lg tracking-tight">CloudShare</span>
+        </div>
+        <div className="flex items-center gap-4">
+          <button className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Help</button>
+          <button className="bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-100 transition-all">Sign In</button>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-1 flex flex-col items-center justify-center p-6 sm:p-12">
+        <div className="w-full max-w-xl">
+          {/* File Card */}
+          <div className="bg-white rounded-3xl shadow-[0_20px_50px_rgba(8,112,184,0.07)] border border-slate-100 overflow-hidden">
+            <div className="p-8 sm:p-12 text-center flex flex-col items-center">
+              
+              {/* File Icon Decoration */}
+              <div className="relative mb-8">
+                <div className="absolute inset-0 bg-blue-100 rounded-2xl blur-xl opacity-50 transform scale-110"></div>
+                <div className="relative bg-white p-6 rounded-2xl border border-blue-50 shadow-sm">
+                  <FileVideo className="w-16 h-16 text-blue-600" />
+                </div>
+              </div>
+
+              {/* File Details */}
+              <h1 className="text-2xl font-bold text-slate-900 mb-2 truncate max-w-full">
+                {fileName}
+              </h1>
+              <div className="flex items-center gap-3 text-sm text-slate-500 mb-8 font-medium">
+                <span>{fileSize}</span>
+                <span className="w-1 h-1 bg-slate-300 rounded-full"></span>
+                <span>{uploadDate}</span>
+              </div>
+
+              {/* Status Indicator */}
+              <div className="flex items-center gap-2 px-3 py-1 bg-green-50 text-green-700 rounded-full text-xs font-semibold mb-10">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                Verified & Scanned for threats
+              </div>
+
+              {/* Primary Action Button */}
+              <button 
+                onClick={handleDownload}
+                className="group relative w-full sm:w-64 bg-blue-600 hover:bg-blue-700 text-white py-4 px-8 rounded-2xl font-bold text-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3 shadow-lg shadow-blue-200"
+              >
+                <Download className="w-5 h-5 group-hover:animate-bounce" />
+                Download
+              </button>
+
+              <p className="mt-6 text-xs text-slate-400">
+                Link expires in 48 hours. Please save your file promptly.
+              </p>
+            </div>
+
+            {/* Bottom Actions Row */}
+            <div className="bg-slate-50 border-t border-slate-100 px-8 py-4 flex items-center justify-between">
+              <button className="flex items-center gap-2 text-sm text-slate-600 hover:text-blue-600 font-medium transition-colors">
+                <Share2 className="w-4 h-4" />
+                Share
+              </button>
+              <div className="flex items-center gap-4">
+                <button className="text-slate-400 hover:text-slate-600 transition-colors">
+                  <Info className="w-5 h-5" />
+                </button>
+                <button className="text-slate-400 hover:text-slate-600 transition-colors">
+                  <MoreHorizontal className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Info / Social Proof */}
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+            <div className="p-4">
+              <div className="text-blue-600 font-bold text-xl mb-1">100%</div>
+              <div className="text-slate-500 text-xs uppercase tracking-wider font-semibold">Uptime</div>
+            </div>
+            <div className="p-4">
+              <div className="text-blue-600 font-bold text-xl mb-1">AES-256</div>
+              <div className="text-slate-500 text-xs uppercase tracking-wider font-semibold">Encrypted</div>
+            </div>
+            <div className="p-4">
+              <div className="text-blue-600 font-bold text-xl mb-1">Direct</div>
+              <div className="text-slate-500 text-xs uppercase tracking-wider font-semibold">Speed</div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      {/* Simple Footer */}
+      <footer className="py-8 border-t border-slate-100 flex flex-col items-center gap-4">
+        <div className="flex gap-6 text-sm text-slate-400">
+          <a href="#" className="hover:text-blue-600 transition-colors">Privacy Policy</a>
+          <a href="#" className="hover:text-blue-600 transition-colors">Terms of Service</a>
+          <a href="#" className="hover:text-blue-600 transition-colors">Contact</a>
+        </div>
+        <p className="text-xs text-slate-400">© 2024 CloudShare Transfer. All rights reserved.</p>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
+
